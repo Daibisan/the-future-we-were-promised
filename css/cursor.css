@@ -1,0 +1,56 @@
+/* Elemen Kursor Kustom */
+#custom-cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--cursor-dot-color, #ffffff);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10000;
+  transition: background-color 0.4s ease, transform 0.1s ease;
+}
+
+#custom-cursor-ring {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--cursor-ring-color, rgba(255, 255, 255, 0.5));
+  border-radius: var(--cursor-radius, 50%);
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition:
+    border-color 0.4s ease,
+    background-color 0.4s ease,
+    border-radius 0.4s ease,
+    width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    height 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.4s ease;
+}
+
+/* Skala Hover Khusus untuk kursor kustom */
+.hovering-interactive #custom-cursor-ring {
+  width: 55px;
+  height: 55px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--cursor-dot-color);
+}
+
+/* Jarum Penusuk Gelembung (Needle cursor) */
+.hovering-large-bubble #custom-cursor-dot {
+  width: 2px;
+  height: 26px;
+  background: linear-gradient(to top, #ffffff, #cfd8dc);
+  border-radius: 1px;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
+  transform: translate(-50%, -100%) rotate(-45deg);
+  transform-origin: bottom center;
+}
+
+.hovering-large-bubble #custom-cursor-ring {
+  width: 0px !important;
+  height: 0px !important;
+  opacity: 0 !important;
+  border-width: 0px !important;
+}

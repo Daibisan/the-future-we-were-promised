@@ -1,0 +1,59 @@
+@import url('themes.css');
+@import url('cursor.css');
+@import url('animations.css');
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  transition: background 0.8s cubic-bezier(0.25, 1, 0.5, 1), color 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Nonaktifkan kursor sistem untuk menggunakan kursor kustom premium kami (hanya desktop) */
+@media (min-width: 768px) {
+  body, a, button, select, input, .indicator-dot, .cursor-pointer {
+    cursor: none !important;
+  }
+}
+
+/* Default Glassmorphism */
+.glass-panel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(var(--panel-blur, 12px));
+  -webkit-backdrop-filter: blur(var(--panel-blur, 12px));
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--panel-shadow);
+  color: var(--text-color, #ffffff);
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.glass-panel p, .glass-panel h2, .glass-panel span {
+  transition: color 0.6s ease;
+}
+
+/* Gaya Titik Aktif untuk pengalih tema */
+.indicator-dot {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.indicator-dot.active {
+  transform: scale(1.35);
+  background-color: var(--accent) !important;
+  box-shadow: 0 0 12px var(--accent);
+}
+
+/* Desain Tombol Pengalih Suara */
+.sound-toggle-btn {
+  transition: all 0.3s ease;
+}
+.sound-toggle-btn:hover {
+  transform: scale(1.1);
+}

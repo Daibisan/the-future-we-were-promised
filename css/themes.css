@@ -1,0 +1,389 @@
+/* Aturan CSS Kustom Per Tema */
+:root {
+  /* Frutiger Aero (Default) */
+  --cursor-dot-color: #00e5ff;
+  --cursor-ring-color: rgba(0, 229, 255, 0.5);
+  --cursor-radius: 50%;
+  --cursor-dot-border: rgba(255, 255, 255, 0.8);
+  --panel-bg: rgba(255, 255, 255, 0.18);
+  --panel-border: rgba(255, 255, 255, 0.3);
+  --panel-shadow: 0 8px 32px 0 rgba(31, 135, 240, 0.25), inset 0 2px 8px rgba(255, 255, 255, 0.3);
+  --panel-blur: 14px;
+  --accent: #00e5ff;
+  --text-color: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dorfic"] {
+  --cursor-dot-color: #4e1d00;
+  --cursor-dot-border: #ffffff;
+  --cursor-ring-color: #4e1d00;
+  --cursor-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  /* gaya bentuk organik */
+  --panel-bg: rgba(255, 248, 235, 0.82);
+  --panel-border: rgba(230, 81, 0, 0.35);
+  --panel-shadow: 0 10px 30px rgba(230, 81, 0, 0.18), inset 0 2px 8px rgba(255, 255, 255, 0.6);
+  --panel-blur: 16px;
+  --accent: #e65100;
+  --text-color: #4e1d00;
+  --text-muted: #8d4004;
+}
+
+[data-theme="dark-aero"] {
+  --cursor-dot-color: #00ff66;
+  --cursor-ring-color: rgba(0, 255, 102, 0.5);
+  --cursor-radius: 0%;
+  /* kotak cyber */
+  --panel-bg: rgba(5, 12, 5, 0.85);
+  --panel-border: rgba(0, 255, 102, 0.25);
+  --panel-shadow: 0 0 25px rgba(0, 255, 102, 0.15), inset 0 1px 4px rgba(0, 255, 102, 0.2);
+  --panel-blur: 10px;
+  --accent: #00ff66;
+  --text-color: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.65);
+}
+
+[data-theme="clean-core"] {
+  --cursor-dot-color: #38bdf8;
+  --cursor-ring-color: rgba(244, 114, 182, 0.4);
+  --cursor-radius: 50%;
+  --panel-bg: rgba(255, 255, 255, 0.75);
+  --panel-border: rgba(255, 255, 255, 0.9);
+  --panel-shadow: 0 10px 30px rgba(186, 230, 253, 0.3);
+  --panel-blur: 8px;
+  --accent: #38bdf8;
+  --text-color: #1e293b;
+  /* Teks gelap kontras tinggi */
+  --text-muted: #64748b;
+  /* Abu-abu kontras */
+}
+
+[data-theme="frutiger-metro"] {
+  --cursor-dot-color: #000000;
+  --cursor-ring-color: #ff007f;
+  --cursor-radius: 12px;
+  --panel-bg: #ffffff;
+  --panel-border: 4px solid #000000;
+  --panel-shadow: 8px 8px 0px #000000;
+  --panel-blur: 0px;
+  --accent: #ff007f;
+  --text-color: #000000;
+  /* Hitam pop komik tebal */
+  --text-muted: #2d2d2d;
+}
+
+/* Pengalih Font Presisi Tinggi per Tema */
+.theme-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+[data-theme="dorfic"] .theme-title {
+  font-family: 'Paytone One', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+[data-theme="dark-aero"] .theme-title {
+  font-family: 'Share Tech Mono', monospace;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px rgba(0, 255, 102, 0.8);
+}
+
+[data-theme="clean-core"] .theme-title {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+[data-theme="frutiger-metro"] .theme-title {
+  font-family: 'Paytone One', 'Impact', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  -webkit-text-stroke: 2px #000000;
+  color: #ffffff;
+  text-shadow: 6px 6px 0px #000000;
+}
+
+/* --- OVERRIDES UNTUK KONTRAS TINGGI CLEAN CORE --- */
+[data-theme="clean-core"] header .rounded-full {
+  background-color: rgba(15, 23, 42, 0.08) !important;
+  border-color: rgba(15, 23, 42, 0.15) !important;
+}
+
+[data-theme="clean-core"] #prev-btn,
+[data-theme="clean-core"] #next-btn {
+  color: #0f172a !important;
+}
+
+[data-theme="clean-core"] #prev-btn:hover,
+[data-theme="clean-core"] #next-btn:hover {
+  background-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+[data-theme="clean-core"] .indicator-dot {
+  background-color: rgba(15, 23, 42, 0.25) !important;
+}
+
+[data-theme="clean-core"] .indicator-dot.active {
+  background-color: var(--accent) !important;
+}
+
+[data-theme="clean-core"] #sound-toggle {
+  background-color: rgba(15, 23, 42, 0.08) !important;
+  border-color: rgba(15, 23, 42, 0.15) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="clean-core"] #sound-toggle:hover {
+  background-color: rgba(15, 23, 42, 0.15) !important;
+}
+
+[data-theme="clean-core"] #genre-tagline {
+  color: #0284c7 !important;
+  /* sky-700 / biru langit pekat */
+}
+
+[data-theme="clean-core"] #hero-title {
+  color: #0f172a !important;
+  /* slate-900 */
+}
+
+[data-theme="clean-core"] main p.italic {
+  color: #334155 !important;
+  /* slate-700 */
+}
+
+[data-theme="clean-core"] .scroll-arrow {
+  color: #0284c7 !important;
+}
+
+[data-theme="clean-core"] .scroll-arrow span {
+  color: #0284c7 !important;
+}
+
+[data-theme="clean-core"] footer>div {
+  border-top-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+[data-theme="clean-core"] footer p {
+  color: #475569 !important;
+  /* slate-600 */
+}
+
+[data-theme="clean-core"] #github-link span {
+  color: #0f172a !important;
+}
+
+[data-theme="clean-core"] #github-link svg {
+  fill: #0f172a !important;
+}
+
+[data-theme="clean-core"] #github-link:hover span {
+  color: var(--accent) !important;
+}
+
+[data-theme="clean-core"] #github-link:hover svg {
+  fill: var(--accent) !important;
+}
+
+/* --- OVERRIDES UNTUK KONTRAS TINGGI FRUTIGER METRO --- */
+[data-theme="frutiger-metro"] header .rounded-full {
+  background-color: #ffffff !important;
+  border: 3px solid #000000 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+}
+
+[data-theme="frutiger-metro"] #prev-btn,
+[data-theme="frutiger-metro"] #next-btn {
+  color: #000000 !important;
+}
+
+[data-theme="frutiger-metro"] #prev-btn:hover,
+[data-theme="frutiger-metro"] #next-btn:hover {
+  background-color: #ff007f !important;
+  color: #ffffff !important;
+}
+
+[data-theme="frutiger-metro"] .indicator-dot {
+  background-color: #e5e7eb !important;
+  border: 1.5px solid #000000 !important;
+}
+
+[data-theme="frutiger-metro"] .indicator-dot.active {
+  background-color: var(--accent) !important;
+  box-shadow: none !important;
+}
+
+[data-theme="frutiger-metro"] #sound-toggle {
+  background-color: #ffffff !important;
+  border: 3px solid #000000 !important;
+  color: #000000 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+}
+
+[data-theme="frutiger-metro"] #sound-toggle:hover {
+  background-color: #ff007f !important;
+  color: #ffffff !important;
+}
+
+[data-theme="frutiger-metro"] #genre-tagline {
+  color: #000000 !important;
+  text-shadow: 2px 2px 0px #ffffff;
+}
+
+[data-theme="frutiger-metro"] main p.italic {
+  color: #000000 !important;
+  background-color: #ffffff;
+  padding: 4px 12px;
+  border: 2px solid #000000;
+  box-shadow: 3px 3px 0px #000000;
+  display: inline-block;
+}
+
+[data-theme="frutiger-metro"] .scroll-arrow {
+  color: #000000 !important;
+  text-shadow: 2px 2px 0px #ffffff;
+}
+
+[data-theme="frutiger-metro"] .scroll-arrow span {
+  color: #000000 !important;
+  text-shadow: 2px 2px 0px #ffffff;
+}
+
+[data-theme="frutiger-metro"] footer>div {
+  border-top: 3px solid #000000 !important;
+}
+
+[data-theme="frutiger-metro"] footer p {
+  color: #000000 !important;
+  font-weight: bold;
+}
+
+[data-theme="frutiger-metro"] #github-link span {
+  color: #000000 !important;
+}
+
+[data-theme="frutiger-metro"] #github-link svg {
+  fill: #000000 !important;
+}
+
+[data-theme="frutiger-metro"] #github-link:hover span {
+  color: var(--accent) !important;
+}
+
+[data-theme="frutiger-metro"] #github-link:hover svg {
+  fill: var(--accent) !important;
+}
+
+/* --- OVERRIDES UNTUK KONTRAS TINGGI DORFIC --- */
+[data-theme="dorfic"] header .rounded-full {
+  background-color: rgba(78, 29, 0, 0.08) !important;
+  border-color: rgba(78, 29, 0, 0.18) !important;
+}
+
+[data-theme="dorfic"] #prev-btn,
+[data-theme="dorfic"] #next-btn {
+  color: #4e1d00 !important;
+}
+
+[data-theme="dorfic"] #prev-btn:hover,
+[data-theme="dorfic"] #next-btn:hover {
+  background-color: rgba(78, 29, 0, 0.08) !important;
+}
+
+[data-theme="dorfic"] .indicator-dot {
+  background-color: rgba(78, 29, 0, 0.22) !important;
+}
+
+[data-theme="dorfic"] .indicator-dot.active {
+  background-color: var(--accent) !important;
+}
+
+[data-theme="dorfic"] #sound-toggle {
+  background-color: rgba(78, 29, 0, 0.08) !important;
+  border-color: rgba(78, 29, 0, 0.18) !important;
+  color: #4e1d00 !important;
+}
+
+[data-theme="dorfic"] #sound-toggle:hover {
+  background-color: rgba(78, 29, 0, 0.14) !important;
+}
+
+[data-theme="dorfic"] #genre-tagline {
+  color: #d84315 !important;
+}
+
+[data-theme="dorfic"] #hero-title {
+  color: #4e1d00 !important;
+  text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.8) !important;
+}
+
+[data-theme="dorfic"] main p.italic {
+  color: #8d4004 !important;
+}
+
+[data-theme="dorfic"] .scroll-arrow {
+  color: #d84315 !important;
+}
+
+[data-theme="dorfic"] .scroll-arrow span {
+  color: #d84315 !important;
+}
+
+[data-theme="dorfic"] footer>div {
+  border-top-color: rgba(78, 29, 0, 0.15) !important;
+}
+
+[data-theme="dorfic"] footer p {
+  color: #795548 !important;
+}
+
+[data-theme="dorfic"] #github-link span {
+  color: #4e1d00 !important;
+}
+
+[data-theme="dorfic"] #github-link svg {
+  fill: #4e1d00 !important;
+}
+
+[data-theme="dorfic"] #github-link:hover span {
+  color: var(--accent) !important;
+}
+
+[data-theme="dorfic"] #github-link:hover svg {
+  fill: var(--accent) !important;
+}
+
+[data-theme="dorfic"] #genre-badge {
+  background-color: #ffe0b2 !important;
+  color: #e65100 !important;
+  border-color: #ffb74d !important;
+}
+
+[data-theme="dorfic"] #cta-button {
+  background-image: linear-gradient(to right, #e65100, #ff8f00) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* OVERRIDES KONTRAS TINGGI KURSOR KUSTOM UNTUK DORFIC */
+[data-theme="dorfic"] #custom-cursor-dot {
+  box-shadow: 0 1px 5px rgba(78, 29, 0, 0.85) !important;
+  border-width: 1.5px !important;
+}
+
+[data-theme="dorfic"] #custom-cursor-ring {
+  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.9) !important;
+  border-width: 2.5px !important;
+}
+
+[data-theme="dorfic"].hovering-interactive #custom-cursor-ring {
+  background-color: rgba(78, 29, 0, 0.15) !important;
+  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.9), inset 0 0 8px rgba(78, 29, 0, 0.2) !important;
+}
+
+[data-theme="dorfic"].hovering-large-bubble #custom-cursor-dot {
+  background: linear-gradient(to top, #ffffff, #ffd54f) !important;
+  box-shadow: 0 0 4px rgba(78, 29, 0, 0.9) !important;
+}
