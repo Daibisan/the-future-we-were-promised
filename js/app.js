@@ -194,7 +194,7 @@ function updateTheme(index, playSoundEnabled) {
 
     let bulletSvg = '';
     if (theme.id === 'frutiger-aero' || theme.id === 'dorfic') {
-      bulletSvg = `<svg class="w-4 h-4 text-[var(--accent)] drop-shadow" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>`;
+      bulletSvg = `<svg class="w-4 h-4 text-[var(--accent-text,var(--accent))] drop-shadow" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>`;
     } else if (theme.id === 'dark-aero') {
       bulletSvg = `<svg class="w-4 h-4 text-emerald-400 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`;
     } else if (theme.id === 'clean-core') {
@@ -239,8 +239,8 @@ function customizeSpecifcThemeUI(themeId) {
       <div class="absolute inset-2 rounded-full bg-gradient-to-b from-white/60 to-transparent h-[45%] opacity-80 blur-[1px] z-10 pointer-events-none"></div>
     `;
 
-    ctaButton.className = "glossy-shimmer inline-flex items-center gap-3 px-6 py-3.5 rounded-xl font-bold text-sm tracking-wide bg-gradient-to-r from-sky-500 to-cyan-400 text-white border border-white/20 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 w-full sm:w-auto justify-center cursor-pointer";
-    badge.classList.add('bg-white/20', 'text-white', 'border-white/30');
+    ctaButton.className = "glossy-shimmer inline-flex items-center gap-3 px-6 py-3.5 rounded-xl font-bold text-sm tracking-wide bg-gradient-to-r from-blue-700 to-sky-500 text-white border border-white/30 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 w-full sm:w-auto justify-center cursor-pointer";
+    badge.classList.add('bg-sky-100/80', 'text-sky-700', 'border-sky-300');
 
     body.style.setProperty('--cursor-dot-color', '#00e5ff');
     body.style.setProperty('--cursor-dot-border', 'rgba(255, 255, 255, 0.8)');
