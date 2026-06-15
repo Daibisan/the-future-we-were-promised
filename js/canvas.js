@@ -67,12 +67,19 @@ class Particle {
         this.speedY = -(Math.random() * 0.7 + 0.45);
         this.leafRotation = Math.random() * Math.PI * 2;
         this.leafRotSpeed = (Math.random() - 0.5) * 0.02;
+      } else if (faType === 'falling-leaf') {
+        this.radius = Math.random() * 5 + 13;
+        this.speedX = (Math.random() - 0.5) * 0.8;
+        this.speedY = Math.random() * 0.8 + 1.2; // Jatuh ke bawah
+        this.leafRotation = Math.random() * Math.PI * 2;
+        this.leafRotSpeed = (Math.random() - 0.5) * 0.03;
+        this.swayOffset = Math.random() * Math.PI * 2;
       } else {
         this.radius = Math.random() * 10 + 4; // Gelembung kosong kecil
         this.speedX = (Math.random() - 0.5) * 1.5;
         this.speedY = -(Math.random() * 1.2 + 0.4);
       }
-      this.alpha = Math.random() * 0.35 + 0.35;
+      this.alpha = faType === 'falling-leaf' ? 0.85 : Math.random() * 0.35 + 0.35;
       this.wobbleSpeed = Math.random() * 0.04 + 0.01;
       this.wobbleRange = Math.random() * 1.6;
     } else if (themeId === 'dorfic') {
@@ -134,11 +141,16 @@ class Particle {
       if (this.x > canvasWidth + 50) this.x = -50;
 
     } else if (this.themeId === 'frutiger-aero' || this.themeId === 'clean-core') {
-      this.x += this.speedX + Math.sin(Date.now() * this.wobbleSpeed) * this.wobbleRange * 0.1;
-      this.y += this.speedY;
-
-      if (this.themeId === 'frutiger-aero' && this.faType === 'leaf') {
+      if (this.themeId === 'frutiger-aero' && this.faType === 'falling-leaf') {
+        this.x += this.speedX + Math.sin(Date.now() * 0.005 + this.swayOffset) * 1.2;
+        this.y += this.speedY;
         this.leafRotation += this.leafRotSpeed;
+      } else {
+        this.x += this.speedX + Math.sin(Date.now() * this.wobbleSpeed) * this.wobbleRange * 0.1;
+        this.y += this.speedY;
+        if (this.themeId === 'frutiger-aero' && this.faType === 'leaf') {
+          this.leafRotation += this.leafRotSpeed;
+        }
       }
 
       const offset = this.radius + 15;
@@ -147,6 +159,14 @@ class Particle {
           this.shouldRemove = true;
         } else {
           this.y = canvasHeight + offset;
+          this.x = Math.random() * canvasWidth;
+        }
+      }
+      if (this.y > canvasHeight + offset) {
+        if (this.isExplosion) {
+          this.shouldRemove = true;
+        } else {
+          this.y = -offset;
           this.x = Math.random() * canvasWidth;
         }
       }
@@ -314,7 +334,7 @@ class Particle {
         ctx.restore();
       }
 
-      else if (this.faType === 'leaf') {
+      else if (this.faType === 'leaf' || this.faType === 'falling-leaf') {
         ctx.save();
         ctx.rotate(this.leafRotation);
 
@@ -345,17 +365,19 @@ class Particle {
 
       ctx.restore();
 
-      // 2. Gambar gelembung luar transparan mengkilap di atas konten
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, r, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(255, 255, 255, ${this.alpha})`;
-      ctx.lineWidth = 1.2;
-      ctx.stroke();
+      if (this.faType !== 'falling-leaf') {
+        // 2. Gambar gelembung luar transparan mengkilap di atas konten
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, r, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(255, 255, 255, ${this.alpha})`;
+        ctx.lineWidth = 1.2;
+        ctx.stroke();
 
-      ctx.beginPath();
-      ctx.ellipse(this.x - r * 0.35, this.y - r * 0.35, r * 0.3, r * 0.15, Math.PI / 4, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha * 1.5})`;
-      ctx.fill();
+        ctx.beginPath();
+        ctx.ellipse(this.x - r * 0.35, this.y - r * 0.35, r * 0.3, r * 0.15, Math.PI / 4, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha * 1.5})`;
+        ctx.fill();
+      }
 
     } else if (this.themeId === 'dorfic') {
       ctx.translate(this.x, this.y);
@@ -902,7 +924,7 @@ window.addEventListener('click', (e) => {
     let poppedBubble = false;
     for (let i = particles.length - 1; i >= 0; i--) {
       let p = particles[i];
-      if (p.themeId === 'frutiger-aero' && p.faType === 'large-empty') {
+      if (p.themeId === 'frutiger-aero' && (p.faType === 'large-empty' || p.faType === 'leaf')) {
         const dx = e.clientX - p.x;
         const dy = e.clientY - p.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
@@ -913,21 +935,38 @@ window.addEventListener('click', (e) => {
           
           playThemeSound('bubble-pop');
           
-          // Efek letusan 10 gelembung kecil pecah terbang keluar
-          for (let k = 0; k < 10; k++) {
+          // Efek letusan gelembung kecil pecah terbang keluar
+          const bubbleBurstCount = p.faType === 'leaf' ? 8 : 10;
+          for (let k = 0; k < bubbleBurstCount; k++) {
             const tempP = new Particle(p.x, p.y, 'frutiger-aero', true, 'empty');
             tempP.speedX = (Math.random() - 0.5) * 6;
             tempP.speedY = (Math.random() - 0.5) * 6;
             tempP.radius = Math.random() * 4 + 2;
             particles.push(tempP);
           }
-          
-          // Respawn gelembung baru di bagian bawah setelah 2.5 detik
-          setTimeout(() => {
-            if (genres[currentThemeIndex].id === 'frutiger-aero') {
-              particles.push(new Particle(Math.random() * canvasWidth, canvasHeight + 60, 'frutiger-aero', false, 'large-empty'));
-            }
-          }, 2500);
+
+          if (p.faType === 'leaf') {
+            // Spawn daun jatuh bebas dari gelembung yang meletus
+            const fallingLeaf = new Particle(p.x, p.y, 'frutiger-aero', true, 'falling-leaf');
+            fallingLeaf.radius = p.radius;
+            fallingLeaf.leafRotation = p.leafRotation;
+            fallingLeaf.leafRotSpeed = (Math.random() - 0.5) * 0.05;
+            particles.push(fallingLeaf);
+
+            // Respawn gelembung daun baru di bagian bawah setelah 2.5 detik
+            setTimeout(() => {
+              if (genres[currentThemeIndex].id === 'frutiger-aero') {
+                particles.push(new Particle(Math.random() * canvasWidth, canvasHeight + 50, 'frutiger-aero', false, 'leaf'));
+              }
+            }, 2500);
+          } else {
+            // Respawn gelembung kosong besar baru di bagian bawah setelah 2.5 detik
+            setTimeout(() => {
+              if (genres[currentThemeIndex].id === 'frutiger-aero') {
+                particles.push(new Particle(Math.random() * canvasWidth, canvasHeight + 60, 'frutiger-aero', false, 'large-empty'));
+              }
+            }, 2500);
+          }
           
           break; // Letuskan satu gelembung saja per klik
         }
@@ -1027,7 +1066,7 @@ window.addEventListener('mousemove', (e) => {
   if (themeId === 'frutiger-aero') {
     let isHoveringBubble = false;
     for (let p of particles) {
-      if (p.themeId === 'frutiger-aero' && p.faType === 'large-empty') {
+      if (p.themeId === 'frutiger-aero' && (p.faType === 'large-empty' || p.faType === 'leaf')) {
         const dx = e.clientX - p.x;
         const dy = e.clientY - p.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
