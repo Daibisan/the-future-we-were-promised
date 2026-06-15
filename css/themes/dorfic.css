@@ -1,0 +1,125 @@
+/* Dorfic Theme Overrides */
+[data-theme="dorfic"] {
+  --cursor-dot-color: #4e1d00;
+  --cursor-dot-border: #ffffff;
+  --cursor-ring-color: #4e1d00;
+  --cursor-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; /* gaya bentuk organik */
+  --panel-bg: rgba(255, 248, 235, 0.82);
+  --panel-border: rgba(230, 81, 0, 0.35);
+  --panel-shadow: 0 10px 30px rgba(230, 81, 0, 0.18), inset 0 2px 8px rgba(255, 255, 255, 0.6);
+  --panel-blur: 16px;
+  --accent: #e65100;
+  --text-color: #4e1d00;
+  --text-muted: #8d4004;
+}
+
+[data-theme="dorfic"] header .rounded-full {
+  background-color: rgba(78, 29, 0, 0.08) !important;
+  border-color: rgba(78, 29, 0, 0.18) !important;
+}
+
+[data-theme="dorfic"] #prev-btn,
+[data-theme="dorfic"] #next-btn {
+  color: #4e1d00 !important;
+}
+
+[data-theme="dorfic"] #prev-btn:hover,
+[data-theme="dorfic"] #next-btn:hover {
+  background-color: rgba(78, 29, 0, 0.08) !important;
+}
+
+[data-theme="dorfic"] .indicator-dot {
+  background-color: rgba(78, 29, 0, 0.22) !important;
+}
+
+[data-theme="dorfic"] .indicator-dot.active {
+  background-color: var(--accent) !important;
+}
+
+[data-theme="dorfic"] #sound-toggle {
+  background-color: rgba(78, 29, 0, 0.08) !important;
+  border-color: rgba(78, 29, 0, 0.18) !important;
+  color: #4e1d00 !important;
+}
+
+[data-theme="dorfic"] #sound-toggle:hover {
+  background-color: rgba(78, 29, 0, 0.14) !important;
+}
+
+[data-theme="dorfic"] #genre-tagline {
+  color: #d84315 !important;
+}
+
+[data-theme="dorfic"] #hero-title {
+  color: #4e1d00 !important;
+  text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.8) !important;
+}
+
+[data-theme="dorfic"] main p.italic {
+  color: #8d4004 !important;
+}
+
+[data-theme="dorfic"] .scroll-arrow {
+  color: #d84315 !important;
+}
+
+[data-theme="dorfic"] .scroll-arrow span {
+  color: #d84315 !important;
+}
+
+[data-theme="dorfic"] footer>div {
+  border-top-color: rgba(78, 29, 0, 0.15) !important;
+}
+
+[data-theme="dorfic"] footer p {
+  color: #795548 !important;
+}
+
+[data-theme="dorfic"] #github-link span {
+  color: #4e1d00 !important;
+}
+
+[data-theme="dorfic"] #github-link svg {
+  fill: #4e1d00 !important;
+}
+
+[data-theme="dorfic"] #github-link:hover span {
+  color: var(--accent) !important;
+}
+
+[data-theme="dorfic"] #github-link:hover svg {
+  fill: var(--accent) !important;
+}
+
+[data-theme="dorfic"] #genre-badge {
+  background-color: #ffe0b2 !important;
+  color: #e65100 !important;
+  border-color: #ffb74d !important;
+}
+
+[data-theme="dorfic"] #cta-button {
+  background-image: linear-gradient(to right, #e65100, #ff8f00) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* OVERRIDES KONTRAS TINGGI KURSOR KUSTOM UNTUK DORFIC */
+[data-theme="dorfic"] #custom-cursor-dot {
+  box-shadow: 0 1px 5px rgba(78, 29, 0, 0.85) !important;
+  border-width: 1.5px !important;
+}
+
+[data-theme="dorfic"] #custom-cursor-ring {
+  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.9) !important;
+  border-width: 2.5px !important;
+}
+
+[data-theme="dorfic"].hovering-interactive #custom-cursor-ring {
+  background-color: rgba(78, 29, 0, 0.15) !important;
+  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.9), inset 0 0 8px rgba(78, 29, 0, 0.2) !important;
+}
+
+[data-theme="dorfic"].hovering-large-bubble #custom-cursor-dot {
+  background: linear-gradient(to top, #ffffff, #ffd54f) !important;
+  box-shadow: 0 0 4px rgba(78, 29, 0, 0.9) !important;
+}

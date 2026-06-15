@@ -1,0 +1,48 @@
+/* Base Fallback Variables (Frutiger Aero fallback) and Fonts */
+:root {
+  /* Frutiger Aero (Default) */
+  --cursor-dot-color: #00e5ff;
+  --cursor-ring-color: rgba(0, 229, 255, 0.5);
+  --cursor-radius: 50%;
+  --cursor-dot-border: rgba(255, 255, 255, 0.8);
+  --panel-bg: rgba(255, 255, 255, 0.18);
+  --panel-border: rgba(255, 255, 255, 0.3);
+  --panel-shadow: 0 8px 32px 0 rgba(31, 135, 240, 0.25), inset 0 2px 8px rgba(255, 255, 255, 0.3);
+  --panel-blur: 14px;
+  --accent: #00e5ff;
+  --text-color: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+}
+
+/* Font selectors per theme */
+.theme-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+[data-theme="dorfic"] .theme-title {
+  font-family: 'Paytone One', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+[data-theme="dark-aero"] .theme-title {
+  font-family: 'Share Tech Mono', monospace;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px rgba(0, 255, 102, 0.8);
+}
+
+[data-theme="clean-core"] .theme-title {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+[data-theme="frutiger-metro"] .theme-title {
+  font-family: 'Paytone One', 'Impact', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  -webkit-text-stroke: 2px #000000;
+  color: #ffffff;
+  text-shadow: 6px 6px 0px #000000;
+}

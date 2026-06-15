@@ -60,4 +60,25 @@ const genres = [
 // --- STATE MANAGEMENT ---
 let currentThemeIndex = 0;
 let isHoveringInfoPanel = false;
+let isTransitioning = true; // Kunci input selama transisi
 const interactiveElements = 'a, button, [data-index], .indicator-dot';
+
+// --- DOM SELECTORS ---
+const body = document.body;
+const transitionLayer = document.getElementById('transition-layer');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const dots = document.querySelectorAll('.indicator-dot');
+const heroTitle = document.getElementById('hero-title');
+const tagline = document.getElementById('genre-tagline');
+const contentSec = document.getElementById('content-section');
+const badge = document.getElementById('genre-badge');
+const yearSpan = document.getElementById('genre-year');
+const titleName = document.getElementById('genre-name');
+const descText = document.getElementById('genre-desc');
+const specContainer = document.getElementById('spec-list');
+const ctaButton = document.getElementById('cta-button');
+const ctaArrow = document.getElementById('cta-arrow');
+const orbContent = document.getElementById('orb-content');
+const infoPanel = document.getElementById('info-panel');
+const githubLink = document.getElementById('github-link');

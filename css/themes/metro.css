@@ -1,0 +1,101 @@
+/* Frutiger Metro Theme Overrides */
+[data-theme="frutiger-metro"] {
+  --cursor-dot-color: #000000;
+  --cursor-ring-color: #ff007f;
+  --cursor-radius: 12px;
+  --panel-bg: #ffffff;
+  --panel-border: 4px solid #000000;
+  --panel-shadow: 8px 8px 0px #000000;
+  --panel-blur: 0px;
+  --accent: #ff007f;
+  --text-color: #000000; /* Hitam pop komik tebal */
+  --text-muted: #2d2d2d;
+}
+
+[data-theme="frutiger-metro"] header .rounded-full {
+  background-color: #ffffff !important;
+  border: 3px solid #000000 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+}
+
+[data-theme="frutiger-metro"] #prev-btn,
+[data-theme="frutiger-metro"] #next-btn {
+  color: #000000 !important;
+}
+
+[data-theme="frutiger-metro"] #prev-btn:hover,
+[data-theme="frutiger-metro"] #next-btn:hover {
+  background-color: #ff007f !important;
+  color: #ffffff !important;
+}
+
+[data-theme="frutiger-metro"] .indicator-dot {
+  background-color: #e5e7eb !important;
+  border: 1.5px solid #000000 !important;
+}
+
+[data-theme="frutiger-metro"] .indicator-dot.active {
+  background-color: var(--accent) !important;
+  box-shadow: none !important;
+}
+
+[data-theme="frutiger-metro"] #sound-toggle {
+  background-color: #ffffff !important;
+  border: 3px solid #000000 !important;
+  color: #000000 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+}
+
+[data-theme="frutiger-metro"] #sound-toggle:hover {
+  background-color: #ff007f !important;
+  color: #ffffff !important;
+}
+
+[data-theme="frutiger-metro"] #genre-tagline {
+  color: #000000 !important;
+  text-shadow: 2px 2px 0px #ffffff;
+}
+
+[data-theme="frutiger-metro"] main p.italic {
+  color: #000000 !important;
+  background-color: #ffffff;
+  padding: 4px 12px;
+  border: 2px solid #000000;
+  box-shadow: 3px 3px 0px #000000;
+  display: inline-block;
+}
+
+[data-theme="frutiger-metro"] .scroll-arrow {
+  color: #000000 !important;
+  text-shadow: 2px 2px 0px #ffffff;
+}
+
+[data-theme="frutiger-metro"] .scroll-arrow span {
+  color: #000000 !important;
+  text-shadow: 2px 2px 0px #ffffff;
+}
+
+[data-theme="frutiger-metro"] footer>div {
+  border-top: 3px solid #000000 !important;
+}
+
+[data-theme="frutiger-metro"] footer p {
+  color: #000000 !important;
+  font-weight: bold;
+}
+
+[data-theme="frutiger-metro"] #github-link span {
+  color: #000000 !important;
+}
+
+[data-theme="frutiger-metro"] #github-link svg {
+  fill: #000000 !important;
+}
+
+[data-theme="frutiger-metro"] #github-link:hover span {
+  color: var(--accent) !important;
+}
+
+[data-theme="frutiger-metro"] #github-link:hover svg {
+  fill: var(--accent) !important;
+}

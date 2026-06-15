@@ -1,0 +1,90 @@
+/* Clean Core Theme Overrides */
+[data-theme="clean-core"] {
+  --cursor-dot-color: #38bdf8;
+  --cursor-ring-color: rgba(244, 114, 182, 0.4);
+  --cursor-radius: 50%;
+  --panel-bg: rgba(255, 255, 255, 0.75);
+  --panel-border: rgba(255, 255, 255, 0.9);
+  --panel-shadow: 0 10px 30px rgba(186, 230, 253, 0.3);
+  --panel-blur: 8px;
+  --accent: #38bdf8;
+  --text-color: #1e293b; /* Teks gelap kontras tinggi */
+  --text-muted: #64748b; /* Abu-abu kontras */
+}
+
+[data-theme="clean-core"] header .rounded-full {
+  background-color: rgba(15, 23, 42, 0.08) !important;
+  border-color: rgba(15, 23, 42, 0.15) !important;
+}
+
+[data-theme="clean-core"] #prev-btn,
+[data-theme="clean-core"] #next-btn {
+  color: #0f172a !important;
+}
+
+[data-theme="clean-core"] #prev-btn:hover,
+[data-theme="clean-core"] #next-btn:hover {
+  background-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+[data-theme="clean-core"] .indicator-dot {
+  background-color: rgba(15, 23, 42, 0.25) !important;
+}
+
+[data-theme="clean-core"] .indicator-dot.active {
+  background-color: var(--accent) !important;
+}
+
+[data-theme="clean-core"] #sound-toggle {
+  background-color: rgba(15, 23, 42, 0.08) !important;
+  border-color: rgba(15, 23, 42, 0.15) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="clean-core"] #sound-toggle:hover {
+  background-color: rgba(15, 23, 42, 0.15) !important;
+}
+
+[data-theme="clean-core"] #genre-tagline {
+  color: #0284c7 !important; /* sky-700 / biru langit pekat */
+}
+
+[data-theme="clean-core"] #hero-title {
+  color: #0f172a !important; /* slate-900 */
+}
+
+[data-theme="clean-core"] main p.italic {
+  color: #334155 !important; /* slate-700 */
+}
+
+[data-theme="clean-core"] .scroll-arrow {
+  color: #0284c7 !important;
+}
+
+[data-theme="clean-core"] .scroll-arrow span {
+  color: #0284c7 !important;
+}
+
+[data-theme="clean-core"] footer>div {
+  border-top-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+[data-theme="clean-core"] footer p {
+  color: #475569 !important; /* slate-600 */
+}
+
+[data-theme="clean-core"] #github-link span {
+  color: #0f172a !important;
+}
+
+[data-theme="clean-core"] #github-link svg {
+  fill: #0f172a !important;
+}
+
+[data-theme="clean-core"] #github-link:hover span {
+  color: var(--accent) !important;
+}
+
+[data-theme="clean-core"] #github-link:hover svg {
+  fill: var(--accent) !important;
+}
