@@ -1,5 +1,6 @@
 // --- MESIN SINTESIS SUARA (Web Audio API) ---
 let soundEnabled = true;
+let globalVolume = 10;
 let audioCtx = null;
 
 function initAudioContext() {
@@ -42,12 +43,13 @@ function playInterfaceClickSound() {
     const gain = audioCtx.createGain();
     osc.connect(gain);
     gain.connect(audioCtx.destination);
-    
+
     osc.type = 'sine';
     osc.frequency.setValueAtTime(580, now);
     osc.frequency.exponentialRampToValueAtTime(1150, now + 0.05);
-    gain.gain.setValueAtTime(0.06, now);
+    gain.gain.setValueAtTime(0.06 * globalVolume, now);
     gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+
     osc.start(now);
     osc.stop(now + 0.1);
   } catch (e) {
@@ -70,18 +72,20 @@ function playThemeSound(type) {
       osc.type = 'sine';
       osc.frequency.setValueAtTime(320, now);
       osc.frequency.exponentialRampToValueAtTime(1250, now + 0.12);
-      gain.gain.setValueAtTime(0.12, now);
+      gain.gain.setValueAtTime(0.12 * globalVolume, now);
       gain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+
       osc.start(now);
       osc.stop(now + 0.25);
     } else if (type === 'cozy') {
       // Bunyi analog oranye retro hangat dorfic
       osc.type = 'triangle';
-      osc.frequency.setValueAtTime(261.6, now); 
-      osc.frequency.setValueAtTime(329.6, now + 0.05); 
-      osc.frequency.setValueAtTime(392.0, now + 0.1); 
-      gain.gain.setValueAtTime(0.15, now);
+      osc.frequency.setValueAtTime(261.6, now);
+      osc.frequency.setValueAtTime(329.6, now + 0.05);
+      osc.frequency.setValueAtTime(392.0, now + 0.1);
+      gain.gain.setValueAtTime(0.15 * globalVolume, now);
       gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+
       osc.start(now);
       osc.stop(now + 0.40);
     } else if (type === 'cyber') {
@@ -96,8 +100,9 @@ function playThemeSound(type) {
       osc.type = 'sawtooth';
       osc.frequency.setValueAtTime(200, now);
       osc.frequency.linearRampToValueAtTime(45, now + 0.25);
-      gain.gain.setValueAtTime(0.18, now);
+      gain.gain.setValueAtTime(0.18 * globalVolume, now);
       gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+
       osc.start(now);
       osc.stop(now + 0.3);
     } else if (type === 'bubble') {
@@ -105,8 +110,9 @@ function playThemeSound(type) {
       osc.type = 'sine';
       osc.frequency.setValueAtTime(880, now);
       osc.frequency.exponentialRampToValueAtTime(220, now + 0.08);
-      gain.gain.setValueAtTime(0.08, now);
+      gain.gain.setValueAtTime(0.08 * globalVolume, now);
       gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+
       osc.start(now);
       osc.stop(now + 0.15);
     } else if (type === 'bubble-pop') {
@@ -115,8 +121,9 @@ function playThemeSound(type) {
       osc.frequency.setValueAtTime(650, now);
       osc.frequency.exponentialRampToValueAtTime(1600, now + 0.04);
       osc.frequency.exponentialRampToValueAtTime(100, now + 0.08);
-      gain.gain.setValueAtTime(0.18, now);
+      gain.gain.setValueAtTime(0.18 * globalVolume, now);
       gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+
       osc.start(now);
       osc.stop(now + 0.12);
     } else if (type === 'pop') {
@@ -125,8 +132,9 @@ function playThemeSound(type) {
       osc.frequency.setValueAtTime(150, now);
       osc.frequency.setValueAtTime(300, now + 0.04);
       osc.frequency.setValueAtTime(450, now + 0.08);
-      gain.gain.setValueAtTime(0.06, now);
+      gain.gain.setValueAtTime(0.06 * globalVolume, now);
       gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+
       osc.start(now);
       osc.stop(now + 0.2);
     }
